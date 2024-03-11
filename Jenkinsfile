@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    git branch: 'main', url: 'https://github.com/Khadijatulkubra001/mlops-activity03.git'
+                    git branch: 'main', url: 'https://github.com/Ahmed1282/mlop_class_task_2_i201884.git'
                 }
             }
         }
@@ -14,8 +14,7 @@ pipeline {
             steps {
                 script {
                     // Install Python
-                    sh 'apt-get update && apt-get install -y python3'
-                    sh 'python3 --version' // Check Python version
+                    sh 'apt-get update && apt-get install -y python3 python3-pip'
                 }
             }
         }
@@ -23,7 +22,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh 'make install'
+                    sh 'pip3 install -r requirements.txt'
                 }
             }
         }
